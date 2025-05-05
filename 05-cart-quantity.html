@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Quantity</title>
+  
+  <style>
+    button {
+    background-color: black;
+    color: #00f7ff; /* Neon cyan */
+    font-size: 12px;
+    padding: 10px 2px;
+    border: 2px solid #00f7ff;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow:
+    0 0 2px #00f7ff,
+    0 0 4px #00f7ff,
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff;
+    }
+
+
+  </style>
+
+</head>
+<body style="
+  background-image: url('images/hustle2.jpg');
+  background-size:cover;
+  color: white;
+
+  ">
+
+  <div style="margin-left: 30%; margin-top: 40px;">
+
+    <button
+      onclick="updateCartQuantity('showQuantity');"  
+    >Show Quantity</button>
+
+
+    <button
+      onclick="updateCartQuantity('addToCart');"
+    >Add to cart</button>
+
+
+    <button 
+      onclick ="updateCartQuantity('addTwo');"
+    >+2</button>
+
+    <button 
+      onclick ="updateCartQuantity('addThree');"
+    >+3</button>
+
+
+    <button 
+      onclick ="updateCartQuantity('removeTwo');"
+    >-2</button>
+
+
+    <button
+    onclick="updateCartQuantity('removeFromCart');"
+  >Remove from cart</button>
+
+
+    <button
+      onclick="updateCartQuantity('reset');"
+    >Reset Cart</button>
+
+    <h2 class="cart-details" style="color: white;"></h2>
+  </div>
+
+  
+
+  </p>
+
+  <script>
+    let cartQuantity = 0;
+
+    function updateCartQuantity(updateWith) {
+      const maxQuantity = 10;
+
+      if (updateWith === 'showQuantity') {
+
+        document.querySelector('.cart-details').innerHTML = `Cart Quantity:' + ${cartQuantity}`
+
+      } else if (updateWith === 'addToCart') {
+        (cartQuantity + 1 <= maxQuantity)
+        ? (++cartQuantity ,         document.querySelector('.cart-details').innerHTML = `Cart Quantity: ${cartQuantity}`)
+        : alert('The cart is full');
+
+      } else if (updateWith === 'addTwo') {
+        ((cartQuantity + 2) <= maxQuantity) ? (cartQuantity += 2 ,         document.querySelector('.cart-details').innerHTML = `Cart Quantity: ${cartQuantity}`) : alert('The cart is full');
+
+      } else if (updateWith === 'addThree') {
+        ((cartQuantity + 3) <= maxQuantity) ? (cartQuantity += 3 , document.querySelector('.cart-details').innerHTML = `Cart Quantity: ${cartQuantity}`) : alert('Not enough item in the cart.');
+
+      } else if (updateWith === 'removeTwo') {
+        ((cartQuantity - 2) >= 0) ? (cartQuantity -= 2 ,         document.querySelector('.cart-details').innerHTML = `Cart Quantity: ${cartQuantity}`) : alert('Not enough item In the Cart.');
+
+      } else if (updateWith === 'removeFromCart') {
+        (cartQuantity - 1 >= 0) ? (--cartQuantity ,         document.querySelector('.cart-details').innerHTML = `Cart Quantity: ${cartQuantity}`) : alert('Not enough item in the cart.');
+
+      } else if (updateWith === 'reset') {
+        cartQuantity = 0; 
+      document.querySelector('.cart-details').innerHTML = `Cart Quantity: ${cartQuantity}`
+      } else {
+        console.log('Invalid action');
+      }
+    }
+  </script>
+</body>
+</html>

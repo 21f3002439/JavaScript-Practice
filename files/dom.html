@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+<body>
+  <h1>Doucment Object Model</h1>
+
+  <button>Amit</button>
+  <button class = 'Js-button'>Pandey</button>
+
+  <script>
+    document.title = 'Title Changed';
+
+
+    console.log(document.querySelector('button'))
+
+    console.log(document.querySelector('.Js-button'))
+    document.querySelector('button')
+      .innerHTML = 'Lovely';
+
+    //document.querySelector('body').innerHTML = 'Hi, there!';
+
+    //document.body.innerHTML = 'Helooo!';
+
+  </script>
+</body>
+</html>

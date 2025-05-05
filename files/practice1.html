@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice1</title>
+  <style>
+
+    div {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    button {
+    background-color: navy;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;}
+    button:hover {
+      background-color: lightblue;
+      color: black;
+    }
+    h1 {
+      color: navy;
+      text-align: center;
+      font-size: 2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Toss the coin</h1>
+
+
+  <div>
+    <button
+      onclick="playGame('Heads')"
+    >Heads</button>
+
+    <button
+      onclick="playGame('Tails')"
+    >Tails</button>
+
+    <button style="background-color: red;"
+      onclick="localStorage.removeItem('score'); location.reload();"
+    >Reset</button>
+
+  </div>
+
+
+  <script>
+    // let hour = 20;
+    // const name = 'Amit';
+    
+
+    // if (hour >= 6 && hour <= 12) {
+    //   console.log(`Good morning! ${name}`);
+    // } else if ( hour >= 13 && hour <= 17) {
+    //   console.log(`Good afternoon! ${name}`);
+    // } else {
+    //   console.log(`Good nigh! ${name}`)
+    // }
+
+    // const age = 6;
+    // const isHoliday = false;
+
+    // if (isHoliday && (age <= 6 || age >= 65)) {
+    //   console.log('Dsicount 50%');
+    // } else {
+    //   console.log('No discount');
+    // }
+
+
+    
+   
+
+
+
+   // let guess = prompt('Heads or Tails?') || 'Heads';
+    function playGame(guess) {
+      const randNum = Math.random();
+
+      const compVal = (randNum < 0.5) ? 'Heads' : 'Tails';
+      console.log(compVal);
+
+      const score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+    
+      let result;
+      if (guess === compVal) {
+        score.wins += 1;
+        result = 'You win!';
+      } else {
+        score.losses += 1;
+        result = 'You lose!';
+      }
+
+
+      localStorage.setItem('score', JSON.stringify(score))
+
+      alert(`You guessed ${guess} and it is ${compVal} ${result}
+Wins: ${score.wins} Losses: ${score.losses}`);
+    }
+  </script>
+</body>
+</html>

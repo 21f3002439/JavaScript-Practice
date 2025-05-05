@@ -1,0 +1,62 @@
+body {
+  background-color: black;
+}
+
+.uber {
+  display: inline-flex;
+  gap: 40px;
+  background-color: white;
+  padding:10px;
+  
+
+}
+
+
+.amazon {
+  border: none;
+  border-radius: 50px;
+  background-color: rgb(255, 216, 20);
+  padding: 1% 5%;
+  font-size: 30px;
+  font-family: Arial;
+  margin: 2%;
+}
+
+.uber-schedule {
+  border: none;
+  border-radius: 7px;
+  background-color: rgb(230, 230, 230);
+  font-size: 22px;
+  font-weight: bold;
+  padding: 15px 30px;
+  height: 60px;
+  
+
+}
+
+.uber-request {
+  border: none;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 15px 30px;
+  height: 60px;
+  ;
+
+}
+
+.js-button {
+  border:none;
+  border-radius: 10px;
+  background-color:rgb(230, 230, 230);
+  padding: 10px;
+  font-size: 30px;
+  font-family: Arial;
+}
+
+.toggled {
+color: black;
+background-color:  #66FCF1 ;
+}

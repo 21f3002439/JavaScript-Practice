@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="final-calculator.css">
+</head>
+<body>
+
+  <span>
+    <p class="title" >Calculator</p>
+
+    <p>
+      <button class="button-num" class="operators" onclick="
+        updateCalculation(1)"
+      >1</button>
+
+      <button class="button-num" onclick="
+        updateCalculation(2)"
+      >2</button>
+
+      <button class="button-num" onclick="
+        updateCalculation(3)"
+      >3</button>
+
+      <button class="operators" onclick="
+        updateCalculation(' + ');
+              "
+      >+</button>
+    </p>
+
+    <p>
+      <button class="button-num" onclick="
+        updateCalculation(4);"
+      >4</button>
+
+      <button class="button-num" onclick="
+        updateCalculation(5);"
+      >5</button>
+
+      <button class="button-num" onclick="6;
+        updateCalculation(6);"
+      >6</button>
+
+      <button class="operators" onclick="
+        updateCalculation(' - ');"
+      >-</button>
+    </p>
+
+    <p>
+      <button class="button-num" onclick="
+        updateCalculation(7);"
+      >7</button>
+
+      <button class="button-num" onclick="
+        updateCalculation(8);"
+      >8</button>
+
+      <button class="button-num" onclick="
+        updateCalculation(9);"
+      >9</button>
+
+      <button class="operators" onclick="
+        updateCalculation(' * ');"
+      >*</button>
+    </p>
+
+
+    <p>
+      <button class="button-num" onclick="
+        updateCalculation(0);"
+      >0</button>
+
+      <button class="button-num" onclick="
+        updateCalculation(' . ');"
+      >.</button>
+
+      <button class="button-num" onclick=";
+        document.querySelector('.result').innerHTML = eval(calculation);
+        calculation = '';"
+      >=</button>
+
+      <button class="operators" onclick="
+        updateCalculation(' / ');"
+      >/</button>
+    </p>
+
+
+    <p>
+      <button class="button-num" onclick="
+        calculation = localStorage.removeItem('calculation') || '';
+        document.querySelector('.result').innerHTML = calculation;"
+      >Clear</button>
+    </p>
+
+    <h2 class="result"> </h2>
+    
+  </span>
+  
+  <p>
+    <a href="#">Click here</a> 
+  to see the final version of the project.</p>
+
+  <Script src="final-calculator.js"> </Script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Tutorial</title>
+</head>
+<body>
+  
+
+  <script>
+    obj1 = {
+      "name": "John",
+      "age": 30,
+      "city": "New York",
+      fun: function() {
+        return "Hello, " + this.name;
+      }
+    };
+
+    console.log(obj1);
+
+    console.log(JSON.stringify(obj1));
+
+    console.log(JSON.parse(JSON.stringify(obj1)));
+  </script>
+</body>
+</html>

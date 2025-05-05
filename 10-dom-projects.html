@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom project</title>
+  <style>
+      body {
+        font-family: arial;
+      }
+
+    .subscribe-button {
+      border: none;
+      background-color: black;
+      color:white;
+      padding: 10px 15px 10px 15px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 30px;
+      
+    }
+
+    .is-subscribed {
+      background-color: rgb(240, 240, 240);
+      color: black
+    }
+
+
+    .cost-input {
+      font-size: 15px;
+      padding: 10px;
+    }
+
+    .calculate-button {
+      border: none;
+      font-size: 17px;
+      padding: 12px 15px;
+      background-color: rgb(63, 134, 63);
+      color: white;
+      cursor: pointer;
+    }
+
+    .negative-cost {
+      color: red;
+      font-family: Arial;
+    }
+  </style>
+
+</head>
+<body>
+  <p>YouTube Subsribe Buton</p>
+
+  <button class = 'js-subscribe-button subscribe-button' 
+    onclick="subscribe();" 
+  >Subscribe</button>
+
+  <p>Rock Paper Scissors</p>
+  <a href="09-rock-paper-scissors.html">Click here</a>
+
+  <p>Amazon Shipping Calculator</p>
+  <p>Orders under $40=+$10 shipping.</p>
+  <p>Orders over $40=FREE shipping.</p>
+
+  <input type="text" placeholder="Cost of order" class='js-input-total cost-input' onkeydown="handleCostKeyDown(event)">
+
+  <button class="calculate-button" onclick="
+    calculateTotal();"
+  >Calculate</button>
+
+  <p class="js-total-order-cost"></p>
+
+  <p class="negative-cost"></p>
+
+
+  <script>
+    function handleCostKeyDown(event) {
+      if (event.key === 'Enter') {
+        calculateTotal();
+      }
+    }
+
+
+    function calculateTotal() {
+      const inputTotal = Number(document.querySelector('.js-input-total').value)*100;
+
+      
+      let totalCost;
+
+      if (inputTotal > 0 &&  inputTotal < 4000) {
+        totalCost = `${inputTotal + 1000}`;
+      
+      
+      } else if (inputTotal >=  4000) {
+
+        totalCost = `${inputTotal}`;
+        
+      } else {
+
+        document.querySelector('.negative-cost').innerHTML = 'Alert: Cost cannot be less than $0' 
+        return;
+      }
+
+     document.querySelector('.js-total-order-cost').innerHTML = `$${Number(totalCost)/100}`;
+
+    }
+
+
+    function subscribe() {
+      buttonElement = document.querySelector('.js-subscribe-button')
+    
+      if (buttonElement.innerText === 'Subscribe') {
+        buttonElement.innerHTML = 'Subscribed';
+        buttonElement.classList.add('is-subscribed');
+      } else {
+        buttonElement.innerHTML = 'Subscribe';
+        buttonElement.classList.remove('is-subscribed')
+      }
+    }
+  </script>
+</body>
+</html>

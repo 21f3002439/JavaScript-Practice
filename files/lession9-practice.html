@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>experimenting things</title>
+</head>
+<body style="background-color: teal;">
+
+  <h1>Experimental Learning</h1>
+  <div style="margin-bottom: 50px;">
+    <input 
+    type="text" placeholder="Are you okay ?"
+    onkeyup="
+    document.querySelector('.js-day-today').innerHTML = value;
+    ">
+    
+    <button>
+      Share
+    </button>
+
+    <p class="js-day-today"></p>
+  </div>
+
+
+  <button class="insertBtn"
+    onclick="insertBtn();"
+  >9a</button>
+
+
+  <div 
+    id="button-container" style="margin-top: 50px;"> 
+  </div>
+
+  <p class="chose"></p> 
+
+
+<input type="text" class="js-search-input-name" 
+  onkeydown="
+    if (event.key === 'Enter') {
+      searchBar(event);
+  }
+">
+
+
+<button calss="search-btn"
+  onclick="searchBar()";
+>Submit</button>
+
+<p class="js-search-name" style="color: white;"></p>
+
+
+  <script>
+
+    const head = document.createElement('button');
+    const tail = document.createElement('button');
+
+    head.innerText = 'Head';
+    tail.innerText = 'Tails';
+
+    document.getElementById('button-container').appendChild(head);
+    document.getElementById('button-container').appendChild(tail);
+
+
+    
+    head.onclick = function () {
+        head.style.margin= '20px';
+        head.style.padding= '20px';
+        head.style.backgroundColor= 'white';
+        document.querySelector('.chose').innerHTML = `You chose: heads`
+      }
+
+      tail.onclick = function () {
+        tail.style.margin= '20px';
+        tail.style.padding= '20px';
+        tail.style.backgroundColor= 'white';
+        document.querySelector('.chose').innerHTML = `You chose: tails`
+      }
+
+
+    function searchBar(event) {
+      const name = document.querySelector('.js-search-input-name').value;
+      document.querySelector('.js-search-name').innerHTML = `Your name: ${name}`
+    }
+    
+    function insertBtn() {
+      document.querySelector('.insertBtn').innerHTML='9a done!';     
+    }
+  </script>
+</body>
+</html>
