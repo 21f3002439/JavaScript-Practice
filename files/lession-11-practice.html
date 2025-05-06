@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lession 11</title>
+</head>
+<body>
+  
+
+  <script>
+    console.log('11a')
+
+    const num = [10, 20, 30]
+    num.splice(-1,1, 99)
+    console.log(num)
+
+    console.log('11b')
+
+    function getLastValue(array) {
+      const lastValue = array[array.length - 1]
+      console.log(lastValue)
+    }
+
+    getLastValue(num)
+
+
+    console.log('11c')
+
+
+    function swapArray(array) {
+      const firstVal = array[0]
+      const lastVal = array[array.length -1]
+      array.splice(-1,1,firstVal)
+      array.splice(0,1,lastVal)
+      console.log(num)
+    }
+
+    swapArray(num)
+
+    console.log('11d')
+
+    function forCountUpbyTwo() {
+      for (let i = 0; i <=10; i += 2) {
+        console.log(i)
+      }
+    }
+
+    forCountUpbyTwo()
+
+
+    console.log('11d')
+
+    function forCountDownbyTwo() {
+      for (let i = 5; i >=0; --i) {
+        console.log(i)
+      }
+    }
+
+    forCountDownbyTwo()
+
+
+    console.log('11f')
+
+  function whileCountByTwo() {
+    let i = 0;
+
+    while (i <= 10) {
+      console.log(i)
+      i += 2
+    }
+  }
+
+  whileCountByTwo()
+
+  function whileCountDownbyTwo() {
+    let i = 5;
+
+    while(i >= 0) {
+      console.log(i)
+
+      i--
+    }
+  }
+
+  whileCountDownbyTwo()
+
+
+  console.log('11g')
+
+
+  function doubleNum(array) {
+    let newArr = []
+    for (let i=0; i < array.length; i++) {
+      newArr.push(Number((array[i]*2).toFixed(2)))
+    }
+    console.log(newArr)
+  }
+
+  doubleNum([1,2,3])
+
+  console.log('11g')
+
+  function addOne(array) {
+    let newArr = []
+    for (let i=0; i < array.length; i++) {
+      newArr.push(Number((array[i]+1).toFixed(2)))
+    }
+    console.log(newArr)
+  }
+
+  addOne([1,2,-3, -0.7, 0.29])
+
+
+  console.log('skip 11i(it is easy). Now, 11j')
+
+  function addArrays(arr1, arr2) {
+    let newArr = [];
+
+    if (arr1.length === arr2.length) {
+      for (let i=0; i < arr1.length; i++) {
+        if ((typeof arr1[i] === Number) && (typeof arr2[i] === Number)) {
+          const sum = arr1[i] + arr2[i]
+          newArr.push(Number(sum).toFixed(2))
+        } else {
+          console.log('elements are othan than a Number')
+          return;
+        }
+      }
+    } else {
+      console.log('Arrays are not of same length')
+    }
+    console.log(newArr)
+  }
+
+  addArrays([1,2,3], [0.7, -0.2, 'Amit'])
+
+
+
+  console.log('11k')
+
+
+  function countPositive(nums) {
+    count =0;
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] > 0) {
+        count += 1;
+      }
+    }
+    console.log(count)
+  }
+
+  countPositive([0, 1, 2, -235])
+
+
+  console.log('11L')
+  function minMax(nums) {
+    let min = nums[0];
+    let max = nums[0];
+
+    for (let i = 0; i < nums.length; i++) {
+      if (min >= nums[i] && nums[i] != null) {
+        min = nums[i]
+      } if(max < nums[i] && nums[i] != null) {
+        max = nums[i]
+      }
+    }
+    console.log(min, max)
+  }
+  
+  minMax([3,3,null])
+
+
+  console.log('11n');
+
+  function countWords(arrayStrings) {
+    const count = {};
+    for (let i = 0; i < arrayStrings.length; i++) {
+      const word = arrayStrings[i]
+      if (word in count) {
+        count[word] += 1;
+      } else {
+        count[word] = 1;
+      }
+    }
+
+    console.log(count)
+  }
+
+  countWords(['Amit', '2', 2, "2", 'Amit', 3, 0.7])
+
+  //More efficient method
+
+
+  function countStringWords(arr) {
+    let count = new Map();
+
+    for (let i=0; i < arr.length; i++ ) {
+      const item = arr[i]
+      if (count.has(item)) {
+        count.set(item, count.get(item) + 1);
+      } else {
+        count.set(item, 1);
+      }
+    }
+
+    for (const [key, value] of count.entries()) {
+      console.log(`${typeof key} ${key}: ${value}`);
+    }
+
+    console.log(count);
+  }
+
+
+  countStringWords(['Amit', '2', 2, "2", 'Amit', 3, 0.7])
+  </script>
+</body>
+</html>
