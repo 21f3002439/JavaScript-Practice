@@ -213,6 +213,124 @@
 
 
   countStringWords(['Amit', '2', 2, "2", 'Amit', 3, 0.7])
+
+
+  //arrays are the references like objects
+
+const array1 = [1,2,3];
+const array2 = array1.slice();
+
+//here array1 & array2 are pointing (references to) the same array [1,2,3]
+
+array2.push(4)
+
+console.log(array1, array2) //both gives output: [1,2,34]
+
+//to avoid this, we can use slice
+//using const array2 = array1.slice(); gives the different output because now array1 & array2 are pointing to two different iems in the memory.
+
+
+//destracturing
+
+const [firstval, secondVal] = [1,2,3]
+console.log(firstval, secondVal)  //output: 1 2
+
+   
+function searchWord(arr, word) {
+  let flag = true;
+
+  for (let i=0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      flag = false
+      console.log(arr.indexOf(word))
+      break;
+    }
+  } 
+
+  if (flag) {
+    return -1
+  }
+}
+
+console.log(searchWord([1,2,'search', 'Amit', 'search'],0.2))
+
+
+function removeEgg(food) {
+  let notEgg = [];
+  for (let i=0; i< food.length; i++) {
+    if (food[i] != 'egg') {
+      notEgg.push(food[i]);
+    }
+  }
+  console.log(notEgg)
+}
+
+removeEgg(['mango', 'papaya', 'apple', 'egg', 'eggs', 'egg'])
+
+
+
+function removeFirstTwoEggs(food) {
+  let cart = [];
+  let count = 1;
+  
+  for (let i=0; i< food.length; i++) {
+    if (food[i] === 'egg' && count < 3) {
+      count += 1;
+
+      continue;
+    } else {
+      cart.push(food[i])
+    }
+  }
+  console.log(cart)
+}
+
+
+removeFirstTwoEggs(['mango', 'papaya', 'apple', 'egg', 'eggs', 'egg', 'egg'])
+
+
+
+function removeLastTwoEggs(food) {
+  const reverseItem = food.slice().reverse()
+  let cart = [];
+  let count = 1;
+  for (let i=0; i< food.length; i++) {
+    if (reverseItem[i] === 'egg' && count < 3) {
+      count += 1;
+      continue;
+    } else {
+      cart.push(reverseItem[i])
+    }
+  }
+  console.log(cart)
+}
+
+cartItem = ['mango', 'papaya', 'apple', 'egg', 'eggs', 'egg', 'egg']
+
+removeLastTwoEggs(cartItem)
+
+console.log(cartItem)
+
+function fizzBuzz(arr) {
+  for (let i=0; i < arr.length; i++) {
+    if (arr[i]%3 === 0 && arr[i] % 5 != 0) {
+        console.log('Fizz')
+    } else if (arr[i]%3 != 0 && arr[i] % 5 === 0) {
+      console.log('Buzz')
+    } else if (arr[i]%3 === 0 && arr[i] % 5 === 0) {
+      console.log('FizzBuzz')
+    } else {
+      console.log(arr[i])
+    }
+  }
+}
+
+fizzBuzz([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15])
+
+
+console.log('11x')
+
+
   </script>
 </body>
 </html>

@@ -1,7 +1,4 @@
-const todoListData = [
-  {name: "Amit", dueDate: '07-12-1998'},
-  {name: "Priya", dueDate: '04-01-2003'}
-];
+const todoListData = JSON.parse(localStorage.getItem('todoListData')) || [];
 
 // console.log(todoListData)
 
@@ -17,9 +14,14 @@ function renderTodoList() {
     <div>${name} </div>
     <div> ${dueDate} </div>
     <button 
-      onclick="todoListData.splice(${i}, 1);
-      console.log(todoListData);
-      renderTodoList();"
+      onclick="
+      todoListData.splice(${i}, 1);
+      renderTodoList();
+
+      // Whenever we update the todo list, save in localStorage.
+
+      saveToStorage();"
+
       class="delete-todo-button"
     >Delete</button>`;
 
@@ -33,26 +35,38 @@ function renderTodoList() {
 
 function todoList() {
   const nameInput = document.querySelector('.js-name-input');
-  const dueDateInput = document.querySelector('.js-due-date-input');
-
   const name = nameInput.value;
+
+  const dueDateInput = document.querySelector('.js-due-date-input');
   const dueDate = dueDateInput.value;
 
+
   todoListData.push({
-    //name = name,
-    //dueDate = dueDate
+    //'name': name,
+    //'dueDate': dueDate
 
     name,
     dueDate
-  })
+
+  });
+  
+
   // console.log(todoListData)
 
   nameInput.value = '';
-  dueDate.value = '';
   
 
   renderTodoList()
 
+  // Whenever we update the todo list, save in localStorage.
+  saveToStorage();
+
+}
+
+function saveToStorage() {
+  localStorage.setItem('todoListData', JSON.stringify(todoListData));
+
+  console.log(localStorage.todoListData)
 }
 
 
